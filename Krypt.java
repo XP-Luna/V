@@ -27,9 +27,15 @@ public class Krypt{
             ver[counter] = geheimCode;
             counter--;
         }
+        
         System.out.println("Vertauschtes Array: " + ver[0] + " " + ver[4]);
+        for (int vor=klarText.length()-1;vor>=0;vor--){
+            geheimText = geheimText + bw[vor] + " ";
+        }
         return geheimText;
     }
+    
+
     
     public static double[] hAnalyse(String text){
         text=text.toUpperCase();
@@ -50,6 +56,8 @@ public class Krypt{
     }
 
     public static String encode(String klarText, String schluessel){
+        
+
         if (schluessel == ""){ return "Kein Schlüssel gegeben"; }
         klarText = klarText.toUpperCase();
         schluessel = schluessel.toUpperCase();
@@ -80,6 +88,7 @@ public class Krypt{
         }
         return geheimText;
     }
+    
     
     public static String decode(String klarText, String schluessel){
         if (schluessel == ""){ return "Kein Schlüssel gegeben"; }
