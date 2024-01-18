@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Krypt
+comment1.params=klarText
+comment1.target=java.lang.String\ caesar(java.lang.String)
+comment2.params=text
+comment2.target=double[]\ hAnalyse(java.lang.String)
+comment3.params=klarText\ schluessel
+comment3.target=java.lang.String\ encode(java.lang.String,\ java.lang.String)
+comment4.params=klarText\ schluessel
+comment4.target=java.lang.String\ decode(java.lang.String,\ java.lang.String)
+comment5.params=klarText\ schluessel
+comment5.target=java.lang.String\ zerlege(java.lang.String,\ java.lang.String)
+numComments=6
