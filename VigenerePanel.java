@@ -58,13 +58,13 @@ public class VigenerePanel extends JPanel implements ActionListener{
        boolean ent;
          if (e.getSource() == encode) {     
          String  key=tfVerschiebung.getText();
-         String vText=Krypt.encode(gui.textfeld.getText(),key);
+         String vText=Krypt.encode(gui.textfeld.getText());
          taVText.setText(vText);
      }
 
     if (e.getSource() == decode) {
           String  key=tfVerschiebung.getText();
-         String vText=Krypt.decode(gui.textfeld.getText(),key);
+         String vText=Krypt.decode(gui.textfeld.getText());
          taVText.setText("Geheimtext: " + vText); 
 
      }

@@ -13,7 +13,7 @@ public class Kryptographie extends JFrame implements ActionListener{
     private JButton dlese;
 
     public Kryptographie(){
-        setTitle("Kryptographie");
+        setTitle("V - A very secure Verschlüsselung");
         setBounds(100,100,400,400);
         setMinimumSize(new Dimension(200,300));
         setLayout(new BoxLayout(getContentPane(), BoxLayout.Y_AXIS));
@@ -48,9 +48,9 @@ public class Kryptographie extends JFrame implements ActionListener{
         
         //Tabs
         tabbedPane= new JTabbedPane();
+        tabbedPane.addTab("V",new VigenerePanel(this));
         tabbedPane.addTab("Caesar",new CaesarPanel(this));
         tabbedPane.addTab("Häufigkeitsanalyse",new HaeufigkeitPanel(this));
-        tabbedPane.addTab("Vigenere",new VigenerePanel(this));
         tabbedPane.addTab("Vig. Analyse",new VAnalysePanel(this));
         add(tabbedPane);
         pack();
