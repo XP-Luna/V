@@ -67,22 +67,27 @@ public class Krypt{
         for (int index=0;index<klarText.length();index++){
             int ascii = (int)klarText.charAt(index);
             System.out.println("Text in Ascii umwandeln: " + ascii);
-            geheimCode = ascii + verschiebung - 96;
-            if (geheimCode > 26) {
-                geheimCode = geheimCode%26;
+            if (ascii != 32) {
+                geheimCode = ascii + verschiebung - 96;
+                if (geheimCode > 26) {
+                    geheimCode = geheimCode%26;
+                }
+                System.out.println("Zahl in Buchstabenwerte umschreiben: " + geheimCode);
+                String binarzahl = Integer.toBinaryString(geheimCode);
+                geheimCode = Integer.parseInt(binarzahl);
+                bw[index] = geheimCode;
+                System.out.println("Zahl in Binär umwandeln: " + geheimCode);
+                ver[counter] = geheimCode;
+                counter--;
             }
-            System.out.println("Zahl in Buchstabenwerte umschreiben: " + geheimCode);
-            String binarzahl = Integer.toBinaryString(geheimCode);
-            geheimCode = Integer.parseInt(binarzahl);
-            bw[index] = geheimCode;
-            System.out.println("Zahl in Binär umwandeln: " + geheimCode);
-            ver[counter] = geheimCode;
-            counter--;
+            if (ascii == 32) {
+                bw[index] = 2;
+            }
         }
         
-        System.out.println("Vertauschtes Array: " + ver[0] + " " + ver[4]);
+        System.out.println("Vertauschtes Array: " + ver[0] + " " + ver[5]);
         for (int vor=klarText.length()-1;vor>=0;vor--){
-            geheimText = geheimText + bw[vor] + " ";
+            geheimText = geheimText + bw[vor] + ".";
         }
         return geheimText;
     }
@@ -95,34 +100,55 @@ public class Krypt{
         int klarCode,geheimCode;
         int startCode;
         int verschiebung = 13;
-        char space = ' ';
+        String geheimBinar;
+        char dot = '.';
         int count32 = 0;
         for (int i = 0; i < klarText.length(); i++) {
-            if (klarText.charAt(i) == space) {
+            if (klarText.charAt(i) == dot) {
                 count32++;
             }
         }
         //int bw[] = new int[klarText.length()]; 
-        String ver[] = new String[count32 +1]; 
-        int arrCount = count32;
+        String ver[] = new String[count32]; 
+        //System.out.println(count32 +1);
+        int arrCount = count32 -1;
         String binarZZ = "";
         //int counter = klarText.length() -1;
         for (int index=0;index<klarText.length();index++){
             int binarZ = (int)klarText.charAt(index);
             binarZ = binarZ - 48;
-            if(klarText.charAt(index) == space){
+            if(klarText.charAt(index) == dot){
                 ver[arrCount] = binarZZ;
                 arrCount--;
                 binarZZ = "";
             }
-            binarZZ = binarZZ + binarZ;
+            if(klarText.charAt(index) != dot){
+                binarZZ = binarZZ + binarZ;
+            }
         }
-        
+        for (int binIndex=0; binIndex < count32; binIndex++) {
+            System.out.println("Stelle im Array: " + binIndex);
+            String spaceIdent = "" + 2;
+            System.out.println(spaceIdent);
+            if (ver[binIndex] != "2") {
+                geheimBinar = ver[binIndex];
+                int geheimInt = Integer.parseInt(geheimBinar, 2);
+                System.out.println("Buchstabenwerte: " + geheimInt);
+                geheimInt = geheimInt + 13;
+                geheimInt = geheimInt%26;
+                System.out.println("ROT-13 angewendet: " + geheimInt);
+                geheimInt = geheimInt + 96;
+                geheimZeichen = (char)geheimInt;
+                System.out.println("Buchstabe: " + geheimZeichen);
+                geheimText = geheimText + geheimZeichen;
+            }
+            else geheimText = geheimText + " ";
+        }
         System.out.println("Vertauschtes Array: " + ver[0] + " " + ver[1] + " " + ver[2] + " " + ver[3] + " " + ver[4]);
         // for (int vor=klarText.length()-1;vor>=0;vor--){
             // geheimText = geheimText + ver[vor] + " ";
         // }
-        geheimText = "t";
+        //geheimText = "t";
         return geheimText;
     }
     
