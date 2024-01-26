@@ -85,7 +85,7 @@ public class Krypt{
             }
         }
         
-        System.out.println("Vertauschtes Array: " + ver[0] + " " + ver[5]);
+        System.out.println("Vertauschtes Array: " + ver[0] + " " + ver[2]);
         for (int vor=klarText.length()-1;vor>=0;vor--){
             geheimText = geheimText + bw[vor] + ".";
         }
@@ -103,6 +103,7 @@ public class Krypt{
         String geheimBinar;
         char dot = '.';
         int count32 = 0;
+        boolean two;
         for (int i = 0; i < klarText.length(); i++) {
             if (klarText.charAt(i) == dot) {
                 count32++;
@@ -126,11 +127,14 @@ public class Krypt{
                 binarZZ = binarZZ + binarZ;
             }
         }
+        System.out.println("Vertauschtes Array: " + ver[0] + " " + ver[1] + " " + ver[2] + " " + ver[3] + " " + ver[4]);
         for (int binIndex=0; binIndex < count32; binIndex++) {
             System.out.println("Stelle im Array: " + binIndex);
-            String spaceIdent = "" + 2;
-            System.out.println(spaceIdent);
-            if (ver[binIndex] != "2") {
+            String zwei = "2";
+            two = zwei.equals(ver[binIndex]);
+            // String spaceIdent = "" + 2;
+            // System.out.println(spaceIdent);
+            if (two == false) {
                 geheimBinar = ver[binIndex];
                 int geheimInt = Integer.parseInt(geheimBinar, 2);
                 System.out.println("Buchstabenwerte: " + geheimInt);
