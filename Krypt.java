@@ -85,7 +85,7 @@ public class Krypt{
             }
         }
         
-        System.out.println("Vertauschtes Array: " + ver[0] + " " + ver[2]);
+        //System.out.println("Vertauschtes Array: " + ver[0] + " " + ver[2]);
         for (int vor=klarText.length()-1;vor>=0;vor--){
             geheimText = geheimText + bw[vor] + ".";
         }
@@ -127,7 +127,7 @@ public class Krypt{
                 binarZZ = binarZZ + binarZ;
             }
         }
-        System.out.println("Vertauschtes Array: " + ver[0] + " " + ver[1] + " " + ver[2] + " " + ver[3] + " " + ver[4]);
+        //System.out.println("Vertauschtes Array: " + ver[0] + " " + ver[1] + " " + ver[2] + " " + ver[3] + " " + ver[4]);
         for (int binIndex=0; binIndex < count32; binIndex++) {
             System.out.println("Stelle im Array: " + binIndex);
             String zwei = "2";
@@ -148,7 +148,7 @@ public class Krypt{
             }
             else geheimText = geheimText + " ";
         }
-        System.out.println("Vertauschtes Array: " + ver[0] + " " + ver[1] + " " + ver[2] + " " + ver[3] + " " + ver[4]);
+        //System.out.println("Vertauschtes Array: " + ver[0] + " " + ver[1] + " " + ver[2] + " " + ver[3] + " " + ver[4]);
         // for (int vor=klarText.length()-1;vor>=0;vor--){
             // geheimText = geheimText + ver[vor] + " ";
         // }
